@@ -1,0 +1,15 @@
+font=Inter 12
+anchor=top-left
+margin=10
+padding=15
+border-radius=5
+
+# Colors
+
+background-color=#303446
+text-color=#c6d0f5
+border-color=#babbf1
+progress-color=over #414559
+
+[urgency=high]
+border-color=#ef9f76

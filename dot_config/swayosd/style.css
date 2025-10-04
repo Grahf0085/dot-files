@@ -1,0 +1,41 @@
+window#osd {
+  border-radius: 5px;
+  border: #babbf1 2px solid;
+  background-color: #303446;
+
+}
+
+#container {
+  margin: 16px;
+}
+
+image,
+label {
+  color: #c6d0f5;
+}
+
+progressbar:disabled,
+image:disabled {
+  opacity: 0.5;
+}
+
+progressbar {
+  min-height: 6px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+
+trough {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: #51576d;
+}
+
+progress {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: #8caaee;
+}

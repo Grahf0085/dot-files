@@ -1,0 +1,186 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "modules-left": [
+    "custom/fuzzel",
+    "custom/clipboard",
+    "niri/workspaces",
+    "wlr/taskbar",
+    "mpris"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "temperature",
+    "memory",
+    "cpu",
+    "network",
+    "backlight",
+    "pulseaudio",
+    "battery",
+    "custom/leave"
+  ],
+  "custom/fuzzel": {
+    "format": " ",
+    "on-click": "fuzzel",
+    "tooltip-format": "Launcher"
+  },
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": ""
+    }
+  },
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} {dynamic}",
+    "player-icons": {
+      "default": "",
+      "mpv": ""
+    },
+    "status-icons": {
+      "paused": ""
+    },
+    "dynamic-order": [
+      "title",
+      "artist"
+      // "album"
+      // "position",
+      // "length"
+    ],
+    "dynamic-len": 50,
+    "dynamic-importance-order": [
+      "title",
+      "artist",
+      "album",
+      "position",
+      "length"
+    ]
+  },
+  "wlr/taskbar": {
+    "tooltip": true,
+    "format": "{icon}",
+    "icon-size": 24,
+    "icon-theme": "Papirus-Dark",
+    "tooltip-format": "{name}",
+    "on-click": "activate",
+    "on-click-right": "close",
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox"
+    }
+  },
+  "clock": {
+    "interval": 60,
+    "format": "{:%R | %a, %b %d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "battery": {
+    "interval": 30,
+    "states": {
+      "warning": 40,
+      "critical": 20
+    },
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󰂄",
+    "format-plugged": "{capacity}% 󱟢",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂"
+    ]
+  },
+  "pulseaudio": {
+    "max-volume": 130,
+    "format": "{volume}% {icon}",
+    "format-muted": "{volume}% ",
+    "format-icons": {
+      "headphone": "",
+      "default": [
+        "",
+        ""
+      ]
+    },
+    "scroll-step": 1,
+    "on-click": "pgrep wiremix && pkill wiremix ||ghostty -e wiremix",
+    "ignored-sinks": [
+      "Easy Effects Sink"
+    ]
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{percent}% {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip": false
+  },
+  "cpu": {
+    "interval": 10,
+    "format": "{}% ",
+    "on-click": "pgrep btm && pkill btm || ghostty -e btm"
+  },
+  "memory": {
+    "interval": 30,
+    "format": "{}% ",
+    "on-click": "pgrep btm && pkill btm || ghostty -e btm"
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{signalStrength}% {icon}",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "format-icons": [
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "on-click": "pgrep impala && pkill impala || ghostty -e impala"
+  },
+  "temperature": {
+    "tooltip": false,
+    "on-click": "pgrep btm && pkill btm || ghostty -e btm",
+    "thermal-zone": 6,
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C ",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "custom/clipboard": {
+    "format": "󰅍",
+    "tooltip-format": "Clipboard",
+    "on-click": "cliphist list | fuzzel --dmenu --font=Inter:size=20 --width=100 | cliphist decode | wl-copy"
+  },
+  "custom/leave": {
+    "format": "",
+    "on-click": "wleave",
+    "tooltip-format": "Leave"
+  }
+}

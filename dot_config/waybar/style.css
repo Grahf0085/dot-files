@@ -1,0 +1,183 @@
+@import "frappe.css";
+
+* {
+  font-family: Inter Medium;
+  border: none;
+  box-shadow: none;
+  font-size: 1.25rem;
+  -gtk-icon-shadow: none;
+  -gtk-icon-effect: none;
+  text-shadow: none;
+}
+
+#waybar {
+  background: @base;
+}
+
+#custom-fuzzel,
+#custom-clipboard,
+#workspaces,
+#custom-leave,
+#mpris,
+#battery,
+#pulseaudio,
+#backlight,
+#network,
+#taskbar {
+  background-color: @mantle;
+  border-radius: 0.3rem;
+  margin-top: 0.375rem;
+  margin-bottom: 0.375rem;
+}
+
+#cpu,
+#memory,
+#temperature {
+  background-color: @mantle;
+  margin-top: 0.375rem;
+  margin-bottom: 0.375rem;
+}
+
+#custom-fuzzel,
+#custom-clipboard,
+#pulseaudio,
+#battery,
+#backlight,
+#workspaces,
+#network,
+#taskbar,
+#cpu {
+  margin-right: 0.375rem;
+}
+
+#clock,
+#mpris,
+#battery,
+#pulseaudio,
+#backlight,
+#cpu,
+#memory,
+#network,
+#taskbar,
+#temperature {
+  padding: 0.5rem;
+}
+
+#custom-fuzzel,
+#custom-clipboard,
+#custom-leave {
+  min-width: 3rem;
+}
+
+#custom-fuzzel {
+  margin-left: 0.375rem;
+  color: @blue;
+}
+
+#custom-leave {
+  margin-right: 0.375rem;
+  color: @maroon;
+}
+
+#custom-fuzzel:hover,
+#custom-clipboard:hover,
+#custom-leave:hover {
+  transition: all 0.3s ease-in;
+  opacity: 0.7;
+}
+
+#clock {
+  color: @text;
+}
+
+#workspaces button {
+  color: @lavender;
+}
+
+#workspaces button.active {
+  color: @sky;
+}
+
+#workspaces button:hover {
+  opacity: 0.7;
+  background: inherit;
+  transition: all 0.3s ease-in;
+}
+
+#mpris {
+  color: @mauve;
+}
+
+#battery {
+  color: @green;
+}
+
+#battery.warning:not(.charing) {
+  color: @peach;
+}
+
+@keyframes blink {
+  to {
+    color: @text;
+  }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging),
+#temperature.critical {
+  color: @red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#pulseaudio {
+  color: @flamingo;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#cpu {
+  color: @rosewater;
+  border-top-right-radius: 0.3rem;
+  border-bottom-right-radius: 0.3rem;
+}
+
+#memory {
+  color: @teal;
+}
+
+#network {
+  color: @sapphire;
+}
+
+#temperature {
+  color: @pink;
+  border-top-left-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+
+#taskbar.empty {
+  background: none;
+}
+
+#taskbar * {
+  background: transparent;
+}
+
+#taskbar button:hover {
+  opacity: 0.7;
+}
+
+#taskbar button:not(:last-child) {
+  border-right: 2px solid @overlay0;
+  border-radius: 0px;
+}
+
+#custom-clipboard {
+  color: @peach;
+}
