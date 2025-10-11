@@ -4,16 +4,21 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-if [ ! -f "$SSH_AUTH_SOCK" ]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
+export EDITOR=helix
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
+
+alias montage='pqiv --fade --sort --auto-montage-mode --thumbnail-size=250x250 -f .'
 
 eval "$(starship init bash)"
+eval "$(zoxide init bash)"
