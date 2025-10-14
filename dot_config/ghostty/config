@@ -44,3 +44,4 @@
 
 theme = Catppuccin Frappe
 font-family = "Iosevka"
+quit-after-last-window-closed = false

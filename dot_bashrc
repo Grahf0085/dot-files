@@ -9,6 +9,7 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export EDITOR=helix
+# export TERMINAL=/usr/bin/ghostty
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
