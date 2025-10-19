@@ -9,17 +9,21 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 
 export EDITOR=helix
-# export TERMINAL=/usr/bin/ghostty
 
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
+	IFS= read -r -d '' cwd <"$tmp"
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
 
 alias montage='pqiv --fade --sort --auto-montage-mode --thumbnail-size=250x250 -f .'
+alias pqiv='pqiv -ft --font=Inter --box-colors=#c6d0f5:#303446'
+alias music='termusic'
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+
+# Created by `pipx` on 2025-10-17 01:24:37
+export PATH="$PATH:/home/grahf/.local/bin"
