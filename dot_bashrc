@@ -20,10 +20,11 @@ function y() {
 
 alias montage='pqiv --fade --sort --auto-montage-mode --thumbnail-size=250x250 -f .'
 alias pqiv='pqiv -ft --font=Inter --box-colors=#c6d0f5:#303446'
-alias music='termusic'
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
 # Created by `pipx` on 2025-10-17 01:24:37
 export PATH="$PATH:/home/grahf/.local/bin"
+
+export PATH="$PATH:/home/grahf/.cargo/bin"

@@ -1,9 +1,14 @@
 [[language]]
 name = "json"
-formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }
+formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json"] }
 
 [[language]]
 name = "bash"
 indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "shfmt" }
+auto-format = true
+
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["format", "-"] }
 auto-format = true

@@ -8,6 +8,11 @@ use = "Rolv-Apneseth/starship"
 rev = "a63550b"
 hash = "c2021386289a0cbb3e152a052f67c177"
 
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "2093ab7"
+hash = "16a10359fc2a3cd8cc8bcfbe00f744d3"
+
 [[flavor.deps]]
 use = "bennyyip/gruvbox-dark"
 rev = "e5e1aef"
